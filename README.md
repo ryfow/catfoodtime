@@ -19,17 +19,21 @@ Uses object detection to see if there's actually a cat in the photo
 
 # Detection
 1. Activate the virtual environment if it's not already
-1. Run replace the training run and source in the following command and run: `yolo task=detect mode=predict model="runs/detect/<training run>/weights/best.pt" source="<image>" save_txt=True conf=0.07`
+1. Replace `<training run>` and `<image>` in the following command and run: `yolo task=detect mode=predict model="runs/detect/<training run>/weights/best.pt" source="<image>" save_txt=True conf=0.07`
   
-   You may need to tinker with `conf` in the above command.
+   You may need to tinker with the confidence(`conf`) setting in the above command.
 
-   Then take a look in runs/detect/predict\<N\> to see results
+   Then take a look in `runs/detect/predict<N>` to see results
 
 # Labeling Data
 
 There's probably not enough labeled data in this repository. You should be able to
-add more by saving more images to `source_data`, labeling them with labelImg,
-saving the labels in YOLO format. Then rerun the `split_data.py` and training.
+add more by:
 
-You can install labelImg with `pip install labelImg` I didn't include it in requirements.txt because
-it's not necessary for running yolo.
+1. Save more images to `source_data`
+1. Label the images them with [labelImg](https://pypi.org/project/labelImg/), saving the labels in YOLO format
+1. Run `split_data.py` again
+1. Run yolo training again
+
+Note: You can install labelImg with `pip install labelImg`.
+I didn't include it in requirements.txt because it's not necessary for running yolo.
