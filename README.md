@@ -7,6 +7,7 @@ Uses object detection to see if there's actually a cat in the photo
 1. Activate virtual environment `source .venv/bin/activate`
 1. Install prerequisites. `pip install -r requirements.txt`
 1. Split source_data images into training/test/validation by running `./split_data.py`
+1. Set your dataset directory to the directory you just generated `yolo settings datasets_dir=./training_data`
 1. Train your model on the split data
    `yolo task=detect mode=train model=yolov8n.pt data=yolo-custom.yaml epochs=20 lr0=0.01 imgsz=640`
 
@@ -24,6 +25,13 @@ Uses object detection to see if there's actually a cat in the photo
    You may need to tinker with the confidence(`conf`) setting in the above command.
 
    Then take a look in `runs/detect/predict<N>` to see results
+
+# Converting and using model with ONNX
+
+1. Export your latest model: yolo export model=runs/detect/train<training run>/weights/best.pt format=onnx
+1. Run the model: `python onnx_detect.py --model runs/detect/train5/weights/best.onnx  --img /home/rfowler/Projects/catfoodtime/training_data/train/FlEd3c-XEAAPF-Q.jpg --conf-thres 0.02 --iou-thres 0.5`
+1. Look at the generated file in `foo.jpg`
+
 
 # Labeling Data
 

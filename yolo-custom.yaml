@@ -1,7 +1,6 @@
-path:  ./training_data
-train: ./train
-test: ./test
-val: ./val
+train: train
+test: test
+val: val
 
 #Classes
 nc: 1 # replace according to your number of classes

@@ -3,3 +3,4 @@ cli.log
 runs
 yolov8n.pt
 training_data
+foo.jpg
