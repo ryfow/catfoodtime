@@ -28,10 +28,9 @@ Uses object detection to see if there's actually a cat in the photo
 
 # Converting and using model with ONNX
 
-1. Export your latest model: yolo export model=runs/detect/train<training run>/weights/best.pt format=onnx
+1. Export your latest model: `yolo export model=runs/detect/train<training run>/weights/best.pt format=onnx`
 1. Run the model: `python onnx_detect.py --model runs/detect/train5/weights/best.onnx  --img /home/rfowler/Projects/catfoodtime/training_data/train/FlEd3c-XEAAPF-Q.jpg --conf-thres 0.02 --iou-thres 0.5`
 1. Look at the generated file in `foo.jpg`
-
 
 # Labeling Data
 
